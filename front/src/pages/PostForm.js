@@ -55,7 +55,7 @@ export function PostForm() {
                 enableReinitialize={true}
                 >
                 {({ handleSubmit, setFieldValue, isSubmitting}) => (
-                    <Form onSubmit={handleSubmit} className="px-3 py-2 focus:outline-none rounded bg-gray-600 text-white w-full">
+                    <Form onSubmit={handleSubmit} className="px-3 py-2 focus:outline-none rounded  text-white w-full">
                     
                     <label htmlFor="title" className="text-sm block font-bold text-gray-400">Title</label>
                     

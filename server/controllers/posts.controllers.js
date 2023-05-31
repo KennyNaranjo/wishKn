@@ -5,9 +5,9 @@ import fs from 'fs-extra'
 export const getPosts = async (req, res) => {
     try {
         const posts = await Post.find({});
-        return res.json(posts);
+        return res.status(200).json(posts);
     } catch (error) {
-        return res.status(500).json ({message: error.message})
+        return res.status(500).json({message: error.message})
     }
 };
 
@@ -32,11 +32,11 @@ export const createPosts = async (req, res) => {
         await newPost.save()
         
         
-
-        return res.json(newPost)
+        
+        return res.status(200).json(newPost)
     } catch (error) {
     
-        return res.status(500).json ({ message: error.message })
+        return res.status(500).json({ message: error.message })
     }
     
 }
@@ -59,10 +59,10 @@ export const updatingPosts = async (req, res) => {
         }
         const updatedPost= await Post.findOneAndUpdate({_id:req.params.id}, {title, description, image}, { new: true})
         
-        return res.json(updatedPost)
+        return res.status(200).json(updatedPost)
     } catch (error) {
 
-        return res.status(500).json ({ message: error.message})
+        return res.status(500).json({ message: error.message})
     }
 }
 
@@ -70,7 +70,7 @@ export const deletingPosts = async (req, res) => {
     try {
         const postRemove = await Post.findByIdAndDelete(req.params.id)
 
-        if (!postRemove) return res.sendStatus (404)
+        if (!postRemove) return res.sendStatus(404)
 
         if (postRemove.image.public_id){
             await deleteImage(postRemove.image.public_id)
@@ -78,7 +78,7 @@ export const deletingPosts = async (req, res) => {
 
         return res.sendStatus(204)
     } catch (error) {
-        return res.json(500).json ({message: error.message})
+        return res.status(500).json({message: error.message})
     }
 }
 
@@ -86,10 +86,10 @@ export const getPost = async(req, res) => {
     try {
         const post = await Post.findById(req.params.id)
         if (!post) return res.sendStatus(404)
-        // return res.status(201).send("")
-        return res.json(post)
+        
+        return res.status(200).json(post)
     } catch (error) {
-        return res.json(500).json ({message: error.message})
+        return res.status(500).json({message: error.message})
 
     }
 }
