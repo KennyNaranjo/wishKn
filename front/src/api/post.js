@@ -1,7 +1,8 @@
 import axios from "axios"
 
+const API_URL = process.env.REACT_APP_API_URL
 
-export const getPostRequests = async () => await axios.get('http://localhost:4000/posts')
+export const getPostRequests = async () => await axios.get(API_URL)
 
 export const createPostRequest = async  (post) => {
     const form = new FormData();
@@ -10,14 +11,24 @@ export const createPostRequest = async  (post) => {
         form.append(key, post[key]);
     }
     
-    return await axios.post('http://localhost:4000/posts', form, {
+    return await axios.post(API_URL, form, {
         headers: {
             "Content-Type" : "multipart/form-data",
         }
     })
 }
-export const deletePostRequest = async id => await axios.delete('http://localhost:4000/posts/' + id)
+export const deletePostRequest = async id => await axios.delete(API_URL + '/' + id)
 
-export const getPostRequest = async id => await axios.get('http://localhost:4000/posts/' + id)
+export const getPostRequest = async id => await axios.get(API_URL + '/' +  id)
 
-export const updatePostRequest = async (id, newFields) => await axios.put(`http://localhost:4000/posts/${id}`, newFields);
+export const updatePostRequest = async (id, post) => {
+    const form = new FormData();
+
+    for (let key in post){
+        form.append(key, post[key]);
+    }
+    return await axios.put(`${API_URL}/${id}`, form, {
+        headers: {
+            "Content-Type" : "multipart/form-data",
+        }
+    })}

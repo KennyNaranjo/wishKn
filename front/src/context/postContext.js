@@ -41,7 +41,8 @@ const getPost = async (id) => {
 };
     const updatePost = async (id, newPost) => {
         const res = await updatePostRequest(id, newPost);
-        setPosts(posts.map((post) => (post._id === id ? newPost : post)));
+        
+        setPosts(posts.map((post) => (post._id === id ? res.data : post)));
     };
 
 

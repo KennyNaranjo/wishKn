@@ -21,6 +21,7 @@ export function PostForm() {
         (async() => {
             if (params.id) {
                 const post = await getPost (params.id);
+                
                 setPost(post);
             }
         })();
@@ -66,7 +67,7 @@ export function PostForm() {
                     <Field  component="textarea" name='description' placeholder="description" className='px-3 py-2 focus:online-none rounded bg-gray-600 text-white w-full' rows={3} />
                     <ErrorMessage component="p" name='description' className="text-red-400 text-sm" />
 
-                    <label htmlFor="description" className="text-sm block font-bold text-gray-400">Description</label>
+                    <label htmlFor="description" className="text-sm block font-bold text-gray-400">Image</label>
                     
                     <input type="file" name="image" className="px-3 py-2 focus:outline-one rounded bg-gray-600 text-white w-full" onChange={(e) => setFieldValue('image', e.target.files[0])}/>
                     <button type="sumit" className="bg-indigo-600 hover:indigo-500 px-4 py-2 rounded mt-2 text-white focus:outline-none disabled:bg-indigo-400"
