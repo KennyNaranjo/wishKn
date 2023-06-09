@@ -70,5 +70,5 @@ Tecnologias y librerias usadas.
     
     yup
     
-    Taildind
+    Taildwind
     
