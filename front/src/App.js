@@ -23,7 +23,7 @@ function App() {
             </div>
           </div>
         </div>
-      <div className="bg-neutral-900 min-h-screen flex flex-col items-center">
+      <div className="bg-neutral-900 min-h-full flex flex-col items-center">
         <div className="px-10 container m-auto pb-7 ">
         
         <PostProvider>
