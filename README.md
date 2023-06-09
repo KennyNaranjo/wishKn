@@ -12,11 +12,13 @@ Frontend: http://localhost:3000
 El frontend esta junto al backend en producion.
 
 Esta app usa Cloudinary como servidor de imagenes, por lo que tienes que implementar las siguientes variables de entorno, dentro del backend:
+
 -CLOUD_NAME
 -API_KEY
 -API_SECRET
 
-Tecnologias y librerias usadas
+Tecnologias y librerias usadas.
+
   Back:
     Cloudinary
     Cors
@@ -27,6 +29,7 @@ Tecnologias y librerias usadas
     http-errors
     mongoose
     morgan
+    
    Front:
     Axios
     Dotenv
