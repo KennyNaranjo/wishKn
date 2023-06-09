@@ -6,6 +6,7 @@ import LoginButton from "./components/LoginButton"
 import Profile from "./components/Profile"
 import LogoutButton from "./components/LogoutButton"
 import { useAuth0 } from "@auth0/auth0-react"
+import mu from "./logo/mu.png"
 
 function App() {
 
@@ -14,7 +15,8 @@ function App() {
   return (
       <div className="bg-neutral-900 min-h-screen flex items-center">
         <div className="px-10 container m-auto ">
-          <div>
+        <img className='w-96 h-full' src={mu} alt="mu" />
+          <div className=" justify-between py-4">
           {isAuthenticated ? <LogoutButton/> : <LoginButton/>}
           </div>
         
