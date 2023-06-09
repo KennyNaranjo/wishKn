@@ -13,14 +13,19 @@ function App() {
   const { isAuthenticated, isLoading } = useAuth0()
 
   return (
-      <div className="bg-neutral-900 min-h-screen flex items-center">
-        <div className="px-10 container m-auto ">
-        <img className='w-96 h-full' src={mu} alt="mu" />
-          <div className=" justify-between py-4">
-          {isAuthenticated ? <LogoutButton/> : <LoginButton/>}
+    <>
+        <div className="bg-neutral-900 flex flex-row justify-center items-center px-40 relative pt-7">
+          <img className='w-96 h-' src={mu} alt="mu" />
+          <div className="absolute right-[34rem] flex flex-col items-center justify-around ">
+            <Profile/>
+            <div className="py-4">
+              {isAuthenticated ? <LogoutButton/> : <LoginButton/>}
+            </div>
           </div>
+        </div>
+      <div className="bg-neutral-900 min-h-screen flex flex-col items-center">
+        <div className="px-10 container m-auto pb-7 ">
         
-        <Profile/>
         <PostProvider>
           <Routes>
             <Route path= '/' element={<HomePage/>} />
@@ -32,6 +37,7 @@ function App() {
         </PostProvider>
         </div> 
       </div>
+    </>
     )
 }
 

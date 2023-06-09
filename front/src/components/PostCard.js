@@ -32,10 +32,10 @@ export function PostCard({post}) {
     }
 
     return (
-    <div className="bg-zinc-800 text-white rounded-sm shadow-md shadow-black hover:bg-zinc-700 hover:cursor-pointer"
+    <div className="bg-zinc-800 text-white rounded-sm shadow-md shadow-black hover:bg-zinc-700 hover:cursor-pointer h-[31rem]"
     onClick={() => navigate(`/post/${post._id}`)}
     >
-        <div className="px-4 py-7">
+        <div className="px-4 py-7 ">
             <div className="flex justify-between">
             <h3 >
             {post.title}
@@ -47,10 +47,10 @@ export function PostCard({post}) {
                 Delete
             </button>
             </div>
-            <p>
+            <p className='pb-7'>
             {post.description}
             </p>
-            {post.image && <img src={post.image.url} className='w-96 h-full object-cov' />}
+            {post.image && <img src={post.image.url} className='w-96 h-full object-cov m-auto max-h-[23rem]' />}
         </div>
         
     </div>
